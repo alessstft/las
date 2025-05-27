@@ -2,6 +2,6 @@ namespace LegoCarStoreEF.Domain
 {
     public class TruckLegoCar : LegoCarBase
     {
-        public override string GetCategory() => "Грузовик";
+        public override string GetCategory() => "Р“СЂСѓР·РѕРІРёРє";
     }
 }
