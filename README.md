@@ -1,4 +1,4 @@
-# Разработка интернет магазина для Lego-машинок
+# Разработка онлайн-магазина для Lego-машинок
 ## Диаграмма классов
 ![image](https://github.com/user-attachments/assets/ac8e3be7-3d5b-49fe-a512-4f3cc058c502)
 
