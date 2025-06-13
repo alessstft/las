@@ -1,4 +1,5 @@
 namespace LegoCarStoreEF.Domain
+
 {
 	public class SportLegoCar : LegoCarBase
 	{
