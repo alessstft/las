@@ -1,4 +1,5 @@
-# Диаграмма классов
+# Разработка онлайн-магазина для Lego-машинок
+## Диаграмма классов
 ![image](https://github.com/user-attachments/assets/ac8e3be7-3d5b-49fe-a512-4f3cc058c502)
 
 **Основные классы и их атрибуты:**
@@ -254,3 +255,5 @@ public class CarLogic
 
 
 
+#   f i n i s h  
+ 

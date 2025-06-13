@@ -1,5 +1,6 @@
 using LegoCarStoreEF.Models;
 using LegoCarStoreEF.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LegoCarStoreEF.Services
 {
@@ -27,6 +28,35 @@ namespace LegoCarStoreEF.Services
             _context.Cars.Remove(car);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await _context.Users.Include(u => u.Profile).ToListAsync();
+        }
+
+        public async Task<List<Category>> GetAllCategoriesAsync()
+        {
+            return await _context.Categories.ToListAsync();
+        }
+
+        public async Task<List<Tag>> GetAllTagsAsync()
+        {
+            return await _context.Tags.ToListAsync();
+        }
+
+        public async Task<List<Order>> GetOrdersByUserAsync(int userId)
+        {
+            return await _context.Orders
+                .Where(o => o.UserId == userId)
+                .Include(o => o.Items)
+                    .ThenInclude(oi => oi.Product)
+                .ToListAsync();
+        }
+
+        public async Task<List<Product>> GetAllProductsAsync()
+        {
+            return await _context.Products.Include(p => p.Category).ToListAsync();
         }
     }
 }

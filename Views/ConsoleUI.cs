@@ -1,14 +1,14 @@
-using System.ComponentModel;
-using LegoCarStoreEF.Services;
+using LegoCarStoreEF.Application;
 
 namespace LegoCarStoreEF.Views
 {
     public class ConsoleUI
     {
-        private readonly CarStoreService _service;
-        public ConsoleUI(CarStoreService service)
+        private readonly CarStoreController _controller;
+
+        public ConsoleUI(CarStoreController controller)
         {
-            _service = service;
+            _controller = controller;
         }
 
         public void Run()
@@ -18,46 +18,43 @@ namespace LegoCarStoreEF.Views
                 Console.Clear();
                 Console.WriteLine("=== Магазин LEGO машинок ===");
                 Console.WriteLine("1. Посмотреть все LEGO машинки");
-                Console.WriteLine("2. Поиск по имени");
-                Console.WriteLine("3. Добавить новую машинку LEGO");
-                Console.WriteLine("4. Удалить машинку");
-                Console.WriteLine("6. Заказы пользователей");
-                Console.WriteLine("7. Выход");
+                Console.WriteLine("2. Добавить новую машинку LEGO");
+                Console.WriteLine("3. Удалить машинку");
+                Console.WriteLine("4. Посмотреть машинки");
+                Console.WriteLine("5. Посмотреть пользователей");
+                Console.WriteLine("6. Посмотреть категории");
+                Console.WriteLine("7. Посмотреть теги");
+                Console.WriteLine("8. Посмотреть заказы");
+                Console.WriteLine("9. Выход");
                 Console.Write("Сделайте выбор: ");
 
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        ShowAllCars();
+                        ShowAllCars().Wait();
                         break;
                     case "2":
-                        Console.Write("Название: ");
-                        var name = Console.ReadLine();
-                        var products = db.Products.Where(p => p.Name.Contains(name!));
-                        foreach (var p in products)
-                            Console.WriteLine($"{p.Id}: {p.Name} - {p.Price}₽");
+                        AddCar().Wait();
                         break;
                     case "3":
-                        AddCar();
+                        DeleteCar().Wait();
                         break;
                     case "4":
-                        DeleteCar();
+                        ShowAllProducts().Wait();
                         break;
                     case "5":
-                        Category();
+                        ShowAllUsers().Wait();
                         break;
                     case "6":
-                        Console.Write("User ID: ");
-                        int uid = int.Parse(Console.ReadLine()!);
-                        var orders = db.Orders.Where(o => o.UserId == uid).ToList();
-                        foreach (var o in orders)
-                        {
-                            Console.WriteLine($"Заказ #{o.Id}");
-                            var items = db.OrderItems.Where(i => i.OrderId == o.Id).ToList();
-                            foreach (var item in items)
-                                Console.WriteLine($" - Товар ID: {item.ProductId}, количество: {item.Quantity}");
-                        }
+                        ShowCategories().Wait();
+                        break;
                     case "7":
+                        ShowTags().Wait();
+                        break;
+                    case "8":
+                        ShowOrders().Wait();
+                        break;
+                    case "9":
                         return;
                     default:
                         Console.WriteLine("Неверный ввод! Нажмите любую клавишу...");
@@ -67,7 +64,57 @@ namespace LegoCarStoreEF.Views
             }
         }
 
-        private void ShowAllCars()
+        private async Task ShowAllUsers()
+        {
+            var users = await _controller.GetAllUsersAsync();
+            Console.WriteLine("\n--- Пользователи ---");
+            foreach (var user in users)
+            {
+                Console.WriteLine($"ID: {user.Id}, Email: {user.Email}");
+                if (user.Profile != null)
+                    Console.WriteLine($"    Имя: {user.Profile.FullName}, Адрес: {user.Profile.Address}");
+            }
+            Console.ReadKey();
+        }
+
+        private async Task ShowCategories()
+        {
+            var categories = await _controller.GetAllCategoriesAsync();
+            Console.WriteLine("\n--- Категории ---");
+            foreach (var cat in categories)
+                Console.WriteLine($"{cat.Id}: {cat.Name}");
+            Console.ReadKey();
+        }
+
+        private async Task ShowTags()
+        {
+            var tags = await _controller.GetAllTagsAsync();
+            Console.WriteLine("\n--- Теги ---");
+            foreach (var tag in tags)
+                Console.WriteLine($"{tag.Id}: {tag.Name}");
+            Console.ReadKey();
+        }
+
+        private async Task ShowOrders()
+        {
+            var users = await _controller.GetAllUsersAsync();
+            foreach (var user in users)
+            {
+                var orders = await _controller.GetOrdersByUserAsync(user.Id);
+                Console.WriteLine($"\nЗаказы пользователя {user.Email}:");
+                foreach (var order in orders)
+                {
+                    Console.WriteLine($"  Заказ #{order.Id} от {order.OrderDate}");
+                    foreach (var item in order.Items)
+                    {
+                        Console.WriteLine($"    - {item.Product?.Name} x{item.Quantity} = {item.Price}₽");
+                    }
+                }
+            }
+            Console.ReadKey();
+        }
+
+private void ShowAllCars()
         {
             var cars = _service.GetAllCars();
             Console.WriteLine("\n--- LEGO машинки в магазине ---");
