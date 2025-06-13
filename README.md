@@ -222,7 +222,7 @@ public class CarLogic
  ##Архитектура
 ***Архитектура проекта соответствует трёхслойной: ConsoleUI → CarController → CarStoreService*** 
 
-*промежуточный слой — Application/Controllers
+промежуточный слой — Application/Controllers
 
 Этот слой будет:
 
@@ -230,7 +230,7 @@ public class CarLogic
 
 -Делегировать их в CarStoreService,
 
--Обрабатывать результат (валидация, объединение данных и др).*
+-Обрабатывать результат (валидация, объединение данных и др).
 
 Пример: CarController.cs в папке Application/
 
