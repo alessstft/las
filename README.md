@@ -255,6 +255,3 @@ public class CarLogic
 
 
 
-#   f i n i s h 
- 
- 
