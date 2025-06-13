@@ -243,6 +243,9 @@ public class CarLogic
 }
 ```
 
+ Архитектура проекта соответствует трёхслойной: ConsoleUI → CarController → CarStoreService
+
+
 
 
 
