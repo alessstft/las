@@ -219,7 +219,17 @@ public class CarLogic
 }
 ```
 
- Архитектура проекта соответствует трёхслойной: ConsoleUI → CarController → CarStoreService
+ ##Архитектура
+***Архитектура проекта соответствует трёхслойной: ConsoleUI → CarController → CarStoreService*** 
+ромежуточный слой — Application/Controllers
+Этот слой будет:
+*Принимать команды от ConsoleUI,
+*Делегировать их в CarStoreService,
+*Обрабатывать результат (валидация, объединение данных и др).
+
+Пример: CarController.cs в папке Application/
+
+![image](https://github.com/user-attachments/assets/3a4038ac-cefb-417e-8bf0-27a4e775fbde)
 
 
 
