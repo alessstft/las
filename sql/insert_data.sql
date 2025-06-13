@@ -1,20 +1,19 @@
-
 INSERT INTO users (email, password) VALUES
 ('user1@example.com', 'password1'),
 ('user2@example.com', 'password2');
 
 INSERT INTO profiles (user_id, full_name, address) VALUES
-(1, 'Иван Иванов', 'ул. Лего, 1'),
-(2, 'Петр Петров', 'пр. Машинок, 42');
+(1, 'Г€ГўГ Г­ Г€ГўГ Г­Г®Гў', 'ГіГ«. Г‹ГҐГЈГ®, 1'),
+(2, 'ГЏГҐГІГ° ГЏГҐГІГ°Г®Гў', 'ГЇГ°. ГЊГ ГёГЁГ­Г®ГЄ, 42');
 
 INSERT INTO categories (name) VALUES
-('Спорткары'),
-('Грузовики'),
-('Гоночные машины');
+('Г‘ГЇГ®Г°ГІГЄГ Г°Г»'),
+('ГѓГ°ГіГ§Г®ГўГЁГЄГЁ'),
+('ГѓГ®Г­Г®Г·Г­Г»ГҐ Г¬Г ГёГЁГ­Г»');
 
 INSERT INTO products (name, description, price, category_id) VALUES
-('Lego Speed Champion', 'Гоночный болид', 49.99, 1),
-('Lego Truck', 'Большой грузовик', 79.99, 2);
+('Lego Speed Champion', 'ГѓГ®Г­Г®Г·Г­Г»Г© ГЎГ®Г«ГЁГ¤', 49.99, 1),
+('Lego Truck', 'ГЃГ®Г«ГјГёГ®Г© ГЈГ°ГіГ§Г®ГўГЁГЄ', 79.99, 2);
 
 INSERT INTO orders (user_id) VALUES
 (1), (2);
@@ -24,8 +23,8 @@ INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
 (2, 2, 1, 79.99);
 
 INSERT INTO tags (name) VALUES
-('новинка'),
-('распродажа');
+('Г­Г®ГўГЁГ­ГЄГ '),
+('Г°Г Г±ГЇГ°Г®Г¤Г Г¦Г ');
 
 INSERT INTO product_tags (product_id, tag_id) VALUES
 (1, 1),
