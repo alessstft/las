@@ -165,25 +165,41 @@ dotnet run
 
 **Как это выглядит**
 ---
-*При добавлении*
+*1.При добавлении*
 
 ![image](https://github.com/user-attachments/assets/a1772e4d-6f37-4205-bd92-5b41c8fd7f3f)
 
 
 ---
 
-*При просмотре всего ассортимента*
+*2.При просмотре всего ассортимента*
 
 ![image](https://github.com/user-attachments/assets/67a6874e-5e6c-4c8e-957a-1e520141cc4b)
 
 ---
 
-*При просмотре всего ассортимента*
+*3.Просмотр категорий*
+
+![image](https://github.com/user-attachments/assets/382d06f2-0243-4e5d-9676-6599908debdb)
+
+
+---
+
+*4.При просмотре всего ассортимента*
 
 ![image](https://github.com/user-attachments/assets/6a584511-de6a-48be-a143-be20d15a6bc4)
 
 ---
 
+*5.При удалении машинки*
+
+![image](https://github.com/user-attachments/assets/f82a2297-9eba-4bd8-8abb-568d1f6ce372)
+
+---
+
+*6.Просмотр тегов*
+
+![image](https://github.com/user-attachments/assets/d45875ed-066f-463e-9543-215dee9af538)
 
 
 ---
