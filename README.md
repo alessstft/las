@@ -167,13 +167,24 @@ dotnet run
 ---
 *При добавлении*
 
-![image](https://github.com/user-attachments/assets/983c491b-df46-4fbd-8ce1-37419f323792)
+![image](https://github.com/user-attachments/assets/a1772e4d-6f37-4205-bd92-5b41c8fd7f3f)
+
 
 ---
 
 *При просмотре всего ассортимента*
 
 ![image](https://github.com/user-attachments/assets/67a6874e-5e6c-4c8e-957a-1e520141cc4b)
+
+---
+
+*При просмотре всего ассортимента*
+
+![image](https://github.com/user-attachments/assets/6a584511-de6a-48be-a143-be20d15a6bc4)
+
+---
+
+
 
 ---
 
