@@ -172,9 +172,10 @@ dotnet run
 
 ---
 
-*2.При просмотре всего ассортимента*
+*2.При просмотре заказов*
 
-![image](https://github.com/user-attachments/assets/67a6874e-5e6c-4c8e-957a-1e520141cc4b)
+![image](https://github.com/user-attachments/assets/923b40bc-2946-460b-a7c8-14dde6265536)
+
 
 ---
 
@@ -204,10 +205,11 @@ dotnet run
 
 ---
 
-*При удалении*
+*7.При удалении*
 
-![image](https://github.com/user-attachments/assets/851e28f6-a71e-4bc3-9943-14033beb3c0b)
+![image](https://github.com/user-attachments/assets/f5ea9557-2e37-4eba-b6d9-3d3912d7da98)
 
+---
 
 # Асинхронность и обработка ошибок
 
